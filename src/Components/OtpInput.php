@@ -1,4 +1,5 @@
 <?php
+
 namespace HasanAhani\FilamentOtpInput\Components;
 
 use _PHPStan_11268e5ee\Nette\PhpGenerator\Closure;
@@ -8,6 +9,7 @@ use Filament\Notifications\Notification;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 use Filament\Forms\Components\Concerns;
 use Filament\Forms\Components\Contracts;
+use Filament\Support\Enums\Alignment;
 
 class OtpInput extends Field implements Contracts\CanBeLengthConstrained, Contracts\HasAffixActions
 {
@@ -27,13 +29,41 @@ class OtpInput extends Field implements Contracts\CanBeLengthConstrained, Contra
 
     protected string | \Closure | null $type = 'number';
 
-    public function numberInput(int | \Closure $number = 4):static
+    protected Alignment|\Closure|null $position = Alignment::Start;
+
+    public function position(Alignment|\Closure|null $position): static
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    public function getPosition(): string
+    {
+        return match ($this->evaluate($this->position)) {
+            Alignment::Start => 'start',
+            Alignment::Center => 'center',
+            Alignment::End => 'end',
+            default => 'start',
+        };
+    }
+
+    public function getPositionClass(): string
+    {
+        return match ($this->evaluate($this->position)) {
+            Alignment::Start => 'justify-start',
+            Alignment::Center => 'justify-center',
+            Alignment::End => 'justify-end',
+            default => 'justify-start',
+        };
+    }
+
+    public function numberInput(int | \Closure $number = 4): static
     {
         $this->numberInput = $number;
         return $this;
     }
 
-    public function getNumberInput():int
+    public function getNumberInput(): int
     {
         return $this->evaluate($this->numberInput);
     }
