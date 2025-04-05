@@ -73,8 +73,7 @@
             e.preventDefault();
         },
     }">
-        <div class="flex  justify-{{ $getPositionClass() }} fi-otp-input-container gap-6"
-            dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
+        <div class="flex  {{ $getPositionClass() }} fi-otp-input-container gap-6" dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
 
             @foreach (range(1, $numberInput) as $column)
                 <x-filament::input.wrapper :disabled="$isDisabled" :inline-prefix="$isPrefixInline" :inline-suffix="$isSuffixInline" :prefix="$prefixLabel"

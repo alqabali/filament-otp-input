@@ -37,16 +37,6 @@ class OtpInput extends Field implements Contracts\CanBeLengthConstrained, Contra
         return $this;
     }
 
-    public function getPosition(): string
-    {
-        return match ($this->evaluate($this->position)) {
-            Alignment::Start => 'start',
-            Alignment::Center => 'center',
-            Alignment::End => 'end',
-            default => 'start',
-        };
-    }
-
     public function getPositionClass(): string
     {
         return match ($this->evaluate($this->position)) {
