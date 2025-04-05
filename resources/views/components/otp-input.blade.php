@@ -73,7 +73,7 @@
             e.preventDefault();
         },
     }">
-        <div class="flex  {{ $getPositionClass() }} fi-otp-input-container gap-6" dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
+        <div class="flex justify-between gap-x-2 w-full" dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
 
             @foreach (range(1, $numberInput) as $column)
                 <x-filament::input.wrapper :disabled="$isDisabled" :inline-prefix="$isPrefixInline" :inline-suffix="$isSuffixInline" :prefix="$prefixLabel"
@@ -83,7 +83,7 @@
                     ])">
                     <input {{ $isDisabled ? 'disabled' : '' }} type="{{ $inputType }}" maxlength="1"
                         x-ref="{{ $column }}" required autocomplete="{{ $autocomplete }}"
-                        class="fi-input fi-otp-input block fi-input fi-otp-input w-10 h-10 border-none  text-base text-gray-950 transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] dark:disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.500)] bg-white/0  text-center"
+                        class="fi-input fi-otp-input block fi-input fi-otp-input w-10 h-9 border-none  text-base text-gray-950 transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] dark:disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.500)] bg-white/0  text-center"
                         x-on:input="handleInput($event, {{ $column }})" x-on:paste="handlePaste($event)"
                         x-on:keydown.backspace="handleBackspace($event)" />
 
