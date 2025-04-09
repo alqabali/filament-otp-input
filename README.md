@@ -15,8 +15,6 @@
 -   Move to the next input after filling
 -   Move to the previous input with backspaces
 
-
-
 ## Installation
 
 You can install the package via composer:
@@ -26,9 +24,11 @@ composer require hasan-ahani/filament-otp-input
 ```
 
 ## Usage
+
 Inside a form schema, you can use the Otp input like this:
+
 ```php
-use HasanAhani\FilamentOtpInput\Components;
+use Alqabali\FilamentImagePreview\Components;
 use Filament\Forms\Form;
 
 public function form(Form $form): Form
@@ -41,14 +41,17 @@ public function form(Form $form): Form
         ]);
 }
 ```
+
 The code above will render a otp input inside the form.
 
- ![Otp input](https://raw.githubusercontent.com/hasan-ahani/filament-otp-input/master/docs/otp.png)
+![Otp input](https://raw.githubusercontent.com/hasan-ahani/filament-otp-input/master/docs/otp.png)
 
 ## Number inputs
+
 If the number of entries you want is less or more than the default 4 numbers, you can change it according to the example below
+
 ```php
-use HasanAhani\FilamentOtpInput\Components;
+use Alqabali\FilamentImagePreview\Components;
 use Filament\Forms\Form;
 
 public function form(Form $form): Form
@@ -62,14 +65,17 @@ public function form(Form $form): Form
         ]);
 }
 ```
+
 The above code creates 6 inputs for entering the OTP code.
 
 ![Otp input number](https://raw.githubusercontent.com/hasan-ahani/filament-otp-input/master/docs/otp-number.png)
 
 ## Get Code
+
 If you need to receive the code after entering it completely, proceed as in the example below
+
 ```php
-use HasanAhani\FilamentOtpInput\Components;
+use Alqabali\FilamentImagePreview\Components;
 use Filament\Forms\Form;
 
 public function form(Form $form): Form
@@ -88,11 +94,12 @@ public function form(Form $form): Form
 }
 ```
 
-
 ## Input type
+
 By default, the input type is set to "number". If you need to change it to "password" or "text", you can use the following methods:
+
 ```php
-use HasanAhani\FilamentOtpInput\Components;
+use Alqabali\FilamentImagePreview\Components;
 use Filament\Forms\Form;
 
 public function form(Form $form): Form
@@ -121,8 +128,8 @@ Please see [CHANGELOG](https://github.com/hasan-ahani/filament-otp-input/blob/ma
 
 ## Credits
 
-- [Hasan Ahani](https://github.com/hasan-ahani)
-- [All Contributors](https://github.com/hasan-ahani/filament-otp-input/graphs/contributors)
+-   [Hasan Ahani](https://github.com/hasan-ahani)
+-   [All Contributors](https://github.com/hasan-ahani/filament-otp-input/graphs/contributors)
 
 ## License
 

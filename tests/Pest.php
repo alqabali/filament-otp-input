@@ -1,5 +1,5 @@
 <?php
 
-use HasanAhani\FilamentOtpInput\Tests\TestCase;
+use Alqabali\FilamentImagePreview\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

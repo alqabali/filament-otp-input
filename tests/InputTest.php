@@ -6,9 +6,9 @@ use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
-use HasanAhani\FilamentOtpInput\Tests\Fixtures\Livewire;
+use Alqabali\FilamentImagePreview\Tests\Fixtures\Livewire;
 use Livewire\Component;
-use HasanAhani\FilamentOtpInput\Components\OtpInput;
+use Alqabali\FilamentImagePreview\Components\OtpInput;
 
 use Illuminate\Support\Str;
 use function Pest\Livewire\livewire;
@@ -23,4 +23,3 @@ it('can be rendered', function () {
 
     expect($field)->getNumberInput()->toBe($number);
 });
-

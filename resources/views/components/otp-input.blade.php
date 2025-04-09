@@ -21,7 +21,10 @@
 @endphp
 
 <x-dynamic-component :component="$getFieldWrapperView()" :id="$getId()" :label="$getLabel()" :label-sr-only="$isLabelHidden()" :helper-text="$getHelperText()"
-    :hint="$getHint()" :hint-actions="$getHintActions()" :hint-icon="$getHintIcon()" :required="$isRequired()" :state-path="$getStatePath()" :has-inline-label="$hasInlineLabel">
+    :hint="$getHint()" :hint-actions="$getHintActions()" :hint-icon="$getHintIcon()" :required="$isRequired()" :state-path="$getStatePath()" :has-inline-label="$hasInlineLabel"
+    :attributes="\Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())->class([
+        'fi-fo-otp-input overflow-hidden position-' . $getPositionClass(),
+    ])">
     <div x-data="{
         state: $wire.$entangle('{{ $getStatePath() }}'),
         length: {{ $numberInput }},
@@ -37,13 +40,13 @@
             if (input.value.length > 1) {
                 input.value = input.value.substring(0, 1);
             }
-    
+
             this.state = Array.from(Array(this.length), (element, i) => {
                 const el = this.$refs[(i + 1)];
                 return el.value ? el.value : '';
             }).join('');
-    
-    
+
+
             if (i < this.length) {
                 this.$refs[i + 1].focus();
                 this.$refs[i + 1].select();
@@ -52,18 +55,18 @@
                 @this.set('{{ $getStatePath() }}', this.state)
             }
         },
-    
+
         handlePaste(e) {
             const paste = e.clipboardData.getData('text');
             this.value = paste;
             const inputs = Array.from(Array(this.length));
-    
+
             inputs.forEach((element, i) => {
                 this.$refs[(i + 1)].focus();
                 this.$refs[(i + 1)].value = paste[i] || '';
             });
         },
-    
+
         handleBackspace(e) {
             const ref = e.target.getAttribute('x-ref');
             e.target.value = '';
@@ -73,7 +76,7 @@
             e.preventDefault();
         },
     }">
-        <div class="flex justify-between gap-x-2 w-full" dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
+        <div class="flex {{ $getPositionClass() }} gap-x-2 w-full" dir="{{ $isRtl ? 'rtl' : 'ltr' }}">
 
             @foreach (range(1, $numberInput) as $column)
                 <x-filament::input.wrapper :disabled="$isDisabled" :inline-prefix="$isPrefixInline" :inline-suffix="$isSuffixInline" :prefix="$prefixLabel"
@@ -95,7 +98,12 @@
 </x-dynamic-component>
 
 <style>
-    input.fi-otp-input[type=number] {
+    .fi-fo-otp-input.position-justify-center .fi-fo-field-wrp-error-message,
+    .fi-fo-otp-input.position-justify-center .fi-fo-field-wrp-helper-text {
+        text-align: center !important
+    }
+
+    .fi-otp-input input.fi-otp-input[type=number] {
         -webkit-appearance: textfield;
         -moz-appearance: textfield;
         appearance: textfield;

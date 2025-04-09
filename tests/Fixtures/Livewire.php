@@ -1,6 +1,6 @@
 <?php
 
-namespace HasanAhani\FilamentOtpInput\Tests\Fixtures;
+namespace Alqabali\FilamentImagePreview\Tests\Fixtures;
 
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;

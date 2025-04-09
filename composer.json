@@ -41,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HasanAhani\\FilamentOtpInput\\": "src/"
+            "Alqabali\\FilamentOtpInput\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HasanAhani\\FilamentOtpInput\\Tests\\": "tests/"
+            "Alqabali\\FilamentOtpInput\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -68,7 +68,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "HasanAhani\\FilamentOtpInput\\FilamentOtpInputServiceProvider"
+                "Alqabali\\FilamentOtpInput\\FilamentOtpInputServiceProvider"
             ]
         }
     },

@@ -1,11 +1,9 @@
 <?php
 
-namespace HasanAhani\FilamentOtpInput\Components;
+namespace Alqabali\FilamentOtpInput\Components;
 
 use _PHPStan_11268e5ee\Nette\PhpGenerator\Closure;
-use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Field;
-use Filament\Notifications\Notification;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 use Filament\Forms\Components\Concerns;
 use Filament\Forms\Components\Contracts;
@@ -29,7 +27,7 @@ class OtpInput extends Field implements Contracts\CanBeLengthConstrained, Contra
 
     protected string | \Closure | null $type = 'number';
 
-    protected Alignment|\Closure|null $position = Alignment::Start;
+    protected Alignment|\Closure|null $position = Alignment::Center;
 
     public function position(Alignment|\Closure|null $position): static
     {
@@ -43,7 +41,8 @@ class OtpInput extends Field implements Contracts\CanBeLengthConstrained, Contra
             Alignment::Start => 'justify-start',
             Alignment::Center => 'justify-center',
             Alignment::End => 'justify-end',
-            default => 'justify-start',
+            Alignment::Center => 'justify-between',
+            default => 'justify-center',
         };
     }
 

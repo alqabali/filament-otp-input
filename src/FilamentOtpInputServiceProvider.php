@@ -1,8 +1,7 @@
 <?php
-namespace HasanAhani\FilamentOtpInput;
 
-use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
+namespace Alqabali\FilamentOtpInput;
+
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -12,5 +11,4 @@ class FilamentOtpInputServiceProvider extends PackageServiceProvider
     {
         $package->name('filament-otp-input')->hasViews();
     }
-
 }
